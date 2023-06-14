@@ -48,7 +48,8 @@ nameBook5.replaceWith(cloneBook6);
 nameBook6.replaceWith(cloneBook2);
 
 
+
 const nameBook3 = document.querySelector('.item_three .item__title'); //Замыкания и объекты
-console.log(nameBook3);
-// nameBook3.replaceWith(`<h2 class="item__title" > This и прототипы объектов</h2>`);
-nameBook3.replaceWith(`<br> This и прототипы объектов`);
+const newH2 = document.createElement('h2');
+const newContent = document.createTextNode('This и прототипы объектов')
+newH2.appendChild(newContent);
