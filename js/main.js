@@ -12,44 +12,41 @@ const six = document.querySelector('.item_six');
 
 all.append(one, two, three, four, five, six);
 
-// ********************************
 
-const propsItem2 = document.querySelectorAll('.item_two .props__item');
-const propsItem4 = document.querySelectorAll('.item_four .props__item');
-propsItem4[2].append(propsItem2[3]);
-
-const propsItem6 = document.querySelectorAll('.item_six .props__item');
-propsItem2[8].append(propsItem6[8], propsItem6[9]);
-
-// ********************************
-
-const propsList3 = document.querySelector('.item_three .props__list');
-const propsList5 = document.querySelector('.item_five .props__list');
-const cloneItem5 = propsList5.cloneNode(true);
-const cloneItem3 = propsList3.cloneNode(true);
-propsList5.replaceWith(cloneItem3);
-propsList3.replaceWith(cloneItem5);
-
-// ********************************
-
-
-const nameBook5 = document.querySelector('.item_five .item__title'); //Область видимости и замыкание
-const nameBook2 = document.querySelector('.item_two .item__title'); //ES6 и не только
-// const nameBook0 = document.querySelector('.item_three .item__title'); //Замыкания и объекты
-const nameBook6 = document.querySelector('.item_six .item__title'); //Асинхронная обработка и оптимизация
-
-const cloneBook5 = nameBook5.cloneNode(true);
-const cloneBook2 = nameBook2.cloneNode(true);
-// const cloneBook0 = nameBook0.cloneNode(true);
-const cloneBook6 = nameBook6.cloneNode(true);
-
-nameBook2.replaceWith(cloneBook5);
-nameBook5.replaceWith(cloneBook6);
-nameBook6.replaceWith(cloneBook2);
+const item = document.querySelectorAll('.item');
+const itemTitle = document.querySelectorAll('.item__title');
+const propsLists = document.querySelectorAll('.props__list')
 
 
 
-const nameBook3 = document.querySelector('.item_three .item__title'); //Замыкания и объекты
-const newH2 = document.createElement('h2');
-const newContent = document.createTextNode('This и прототипы объектов')
-newH2.appendChild(newContent);
+
+itemTitle[3].after(propsLists[2]);
+itemTitle[1].after(propsLists[4]);
+
+////////////////////////////
+
+itemTitle[3].before(itemTitle[4]);
+itemTitle[0].before(itemTitle[3]);
+propsLists[5].before(itemTitle[0]);
+
+document.querySelectorAll('.item_four .props__item.props__item_four')[2].
+  after(document.querySelector('.item_two .props__item.props__item_four'))
+document.querySelectorAll('.item_two .props__item.props__item_two')[7].
+  after(document.querySelector('.item_six .props__item.props__item_two'))
+document.querySelectorAll('.item_two .props__item.props__item_two')[8].
+  after(document.querySelector('.item_six .props__item.props__item_two'))
+
+
+
+itemTitle[1].innerHTML = "This и прототипы объектов";
+
+////////// тут не получается правильно, удаляется отсут между li и заголовком
+// const newH2 = document.createElement('h2');
+// const newContent = document.createTextNode('This и прототипы объектов\n ')
+// newH2.appendChild(newContent);
+
+// console.log(itemTitle[1])
+// itemTitle[1].before(newH2);
+// itemTitle[1].replaceWith(' ');
+
+
